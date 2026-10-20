@@ -26,7 +26,7 @@ function Index() {
             VAG-osaaja.<br />Kaikki merkit.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-inverse-muted">
-            Laadukas työnjälki, sujuva asiointi ja kilpailukykyiset hinnat. Erikoistunut Audi, Volkswagen, Skoda ja Seat -autoihin.
+            Laadukas työnjälki, sujuva asiointi ja kilpailukykyiset hinnat.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <a href={`tel:${BIZ.tel}`} className="label-mono bg-inverse-foreground px-6 py-4 text-inverse">Soita {BIZ.phone}</a>
