@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArvostelutRouteImport } from './routes/arvostelut'
+import { Route as PalvelutRouteImport } from './routes/palvelut'
+import { Route as YhteystiedotRouteImport } from './routes/yhteystiedot'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArvostelutRoute = ArvostelutRouteImport.update({
+  id: '/arvostelut',
+  path: '/arvostelut',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PalvelutRoute = PalvelutRouteImport.update({
+  id: '/palvelut',
+  path: '/palvelut',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YhteystiedotRoute = YhteystiedotRouteImport.update({
+  id: '/yhteystiedot',
+  path: '/yhteystiedot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/arvostelut': typeof ArvostelutRoute
+  '/palvelut': typeof PalvelutRoute
+  '/yhteystiedot': typeof YhteystiedotRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/arvostelut': typeof ArvostelutRoute
+  '/palvelut': typeof PalvelutRoute
+  '/yhteystiedot': typeof YhteystiedotRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/arvostelut': typeof ArvostelutRoute
+  '/palvelut': typeof PalvelutRoute
+  '/yhteystiedot': typeof YhteystiedotRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/arvostelut' | '/palvelut' | '/yhteystiedot'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/arvostelut' | '/palvelut' | '/yhteystiedot'
+  id: '__root__' | '/' | '/arvostelut' | '/palvelut' | '/yhteystiedot'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArvostelutRoute: typeof ArvostelutRoute
+  PalvelutRoute: typeof PalvelutRoute
+  YhteystiedotRoute: typeof YhteystiedotRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/arvostelut': {
+      id: '/arvostelut'
+      path: '/arvostelut'
+      fullPath: '/arvostelut'
+      preLoaderRoute: typeof ArvostelutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/palvelut': {
+      id: '/palvelut'
+      path: '/palvelut'
+      fullPath: '/palvelut'
+      preLoaderRoute: typeof PalvelutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/yhteystiedot': {
+      id: '/yhteystiedot'
+      path: '/yhteystiedot'
+      fullPath: '/yhteystiedot'
+      preLoaderRoute: typeof YhteystiedotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArvostelutRoute: ArvostelutRoute,
+  PalvelutRoute: PalvelutRoute,
+  YhteystiedotRoute: YhteystiedotRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
