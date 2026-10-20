@@ -14,7 +14,7 @@ export const Route = createFileRoute("/yhteystiedot")({
 });
 
 function Page() {
-  const rows = [
+  const rows: [string, string, string][] = [
     ["Puhelin", BIZ.phone, `tel:${BIZ.tel}`],
     ["Osoite", BIZ.address, BIZ.maps],
     ["Instagram", "@autovag.fi", BIZ.instagram],

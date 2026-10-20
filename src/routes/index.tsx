@@ -66,9 +66,9 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <Stars />
           <blockquote className="mt-6 max-w-4xl font-display text-3xl font-bold leading-tight md:text-5xl">
-            ”{reviews[1].text}”
+            ”{reviews[1]!.text}”
           </blockquote>
-          <div className="label-mono mt-6 text-inverse-muted">— {reviews[1].name}, Google</div>
+          <div className="label-mono mt-6 text-inverse-muted">— {reviews[1]!.name}, Google</div>
           <Link to="/arvostelut" className="label-mono mt-10 inline-block border border-inverse-foreground px-6 py-4">Lue kaikki arvostelut →</Link>
         </div>
       </section>
